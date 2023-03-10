@@ -11,7 +11,7 @@ const Home = () => {
   {studyData && <Link to="/HTML"><CourseCard title="HTML & CSS" num="1"/></Link> }
    {studyData && <Link to="/Javascript" ><CourseCard title="Javascript " num="1"/></Link>  }
   {studyData && <Link to="/ReactPage" ><CourseCard title="React"/></Link> }
-  {authData || studyData ? <Link to="/SolPage"><CourseCard title="Solidity"/></Link> : Null}
+  {authData || studyData && <Link to="/SolPage"><CourseCard title="Solidity"/></Link> }
  {/* {studyData || studyData ? <Link to="/AiPage"><CourseCard title="Ai and Code"/> </Link> : Null}
  {studyData || studyData ? <Link to="/Python" ><CourseCard title="Python for begginers"/> </Link>  : Null}
  {studyData || studyData ? <Link to="/Projects" > <CourseCard title="Complete Projects"/> </Link>: Null} */}
