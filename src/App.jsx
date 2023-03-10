@@ -1,49 +1,44 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
-import "./styles/Home.css";
+import React from 'react';
+import { Route, Routes, Link } from 'react-router-dom';
+import TextPage from './components/TextPage';
 
-export default function Home() {
+ import { SolSidebar } from './components';
+ import {AiPage, HTMLPage, JavascriptPage, SolPage, PythonPage, Projects} from './pages'
+ import Navbar from './components/NavBar';
+import Home from './pages/Home';
+import Open from './pages/Open';
+import ReactPage from './pages/ReactPage';
+
+
+const App = () => {
+    
   return (
-    <div className="container">
-      <main className="main">
-        <h1 className="title">
-          Welcome to <a href="https://thirdweb.com/">thirdweb</a>!
-        </h1>
+    <div className="relative sm:-8 p-4 bg-[#E2F0EF] min-h-screen flex flex-row">
+      
+      <div className="sm:flex hidden mr-10 relative">
 
-        <p className="description">
-          Get started by configuring your desired network in{" "}
-          <code className="code">src/main.jsx</code>, then modify the{" "}
-          <code className="code">src/App.jsx</code> file!
-        </p>
+      </div>
 
-        <div className="connect">
-          <ConnectWallet />
-        </div>
+      <div className="flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5">
+        <Navbar />
+        
+     
+        <Routes>
+          <Route path="/SolPage" element={<SolPage/>} />
+          <Route path="/Home" element={<Home/>} />
+         < Route path="/HTML" element={<HTMLPage/>} />
+         <Route path="/" element={<Open/>}/>
+         <Route path="ReactPage" element={<ReactPage />} />
+         <Route path="AiPage" element={<AiPage/>} />
+         <Route path="Javascript" element={<JavascriptPage />} />
+         <Route path="Python" element={<PythonPage />} />
+         <Route path="Projects" element={<Projects/>} />
 
-        <div className="grid">
-          <a href="https://portal.thirdweb.com/" className="card">
-            <h2>Portal &rarr;</h2>
-            <p>
-              Guides, references and resources that will help you build with
-              thirdweb.
-            </p>
-          </a>
-
-          <a href="https://thirdweb.com/dashboard" className="card">
-            <h2>Dashboard &rarr;</h2>
-            <p>
-              Deploy, configure and manage your smart contracts from the
-              dashboard.
-            </p>
-          </a>
-
-          <a href="https://portal.thirdweb.com/templates" className="card">
-            <h2>Templates &rarr;</h2>
-            <p>
-              Discover and clone template projects showcasing thirdweb features.
-            </p>
-          </a>
-        </div>
-      </main>
+        </Routes>
+      </div>
+      
     </div>
-  );
+  )
 }
+
+export default App
